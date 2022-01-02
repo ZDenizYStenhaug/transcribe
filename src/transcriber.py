@@ -190,6 +190,5 @@ def calculate_average_confidence(data):
 
 
 def write_to_file(df, filename):
-    path = os.path.join(r"C:\Users\mrlemon\Documents\SWE\2021Fall\SWE590-CloudTechnologies\transcriber\transcriptor"
-                        r"\results", filename)
-    df.to_csv(path + ".csv", index=None, header=True)
+
+    df.to_csv("../results/" + filename + ".csv", index=None, header=True)

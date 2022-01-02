@@ -3,10 +3,7 @@ import pandas as pd
 import transcriber as tr
 
 def main():
-    df = pd.DataFrame()
-    d = {'First Name': 'Vikram', 'Last Name': 'Aruchamy', 'Country': 'India'}
-    df = df.append(d, ignore_index=True)
-    df.to_csv("../results/foo" + ".csv", index=None, header=True)
+
     while True:
         # file = input("Please enter the file name: \n")
 
