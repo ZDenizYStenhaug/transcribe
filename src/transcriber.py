@@ -147,8 +147,9 @@ def transcribe_loop(filename, bucket_uri, count):
         avg_confidence = calculate_average_confidence(data)
         time_taken_for_job = (result['TranscriptionJob']['CompletionTime'] - result['TranscriptionJob']['StartTime'])\
             .total_seconds()
-        sentiment = sa.get_sentiment_score(text)
-        row = {"job_name": job_name,
+        sentiment = sa.get_sentiment_score(text.lower())
+        row = {"count": int(i),
+               "job_name": job_name,
                "start_time": start_time,
                "text": text,
                "avg_confidence": avg_confidence,
