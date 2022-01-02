@@ -54,8 +54,10 @@ def s3(bucket_name, bucket_uri):
             tr.delete_file_from_s3(delete_filename, bucket_name)
 
         elif choice == "2":
-            upload_filename = input("Please type the filename you'd like to upload.\n(The file needs to be an mp3")
-            tr.upload_file_to_s3(upload_filename, bucket_name)
+            upload_filename = input("Please type the filename you'd like to upload.\n(The file needs to be an mp3)\n")
+            is_valid = tr.check_if_file_valid(upload_filename)
+            if is_valid:
+                tr.upload_file_to_s3(upload_filename, bucket_name)
 
         elif choice == "3":
             transcribe_filename = input("Please type the name of the file you'd like to transcribe.")

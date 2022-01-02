@@ -1,0 +1,2 @@
+count,job_name,start_time,text,avg_confidence,time_taken_for_job,time_taken_for_process,sentiment_score
+0.0,robin_nyc_short,1641146499.3253934,Hello and happy holidays This is Robin checking in from Georgia I just got back from a really fun visit to new york city.,0.9499199999999999,19.102,25.947291374206543,1.0

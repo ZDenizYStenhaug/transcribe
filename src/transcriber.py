@@ -148,7 +148,7 @@ def transcribe_loop(filename, bucket_uri, count):
         time_taken_for_job = (result['TranscriptionJob']['CompletionTime'] - result['TranscriptionJob']['StartTime'])\
             .total_seconds()
         sentiment = sa.get_sentiment_score(text.lower())
-        row = {"count": int(i),
+        row = {"count": i,
                "job_name": job_name,
                "start_time": start_time,
                "text": text,
@@ -159,6 +159,19 @@ def transcribe_loop(filename, bucket_uri, count):
         df = df.append(row, ignore_index=True)
 
     write_to_file(df, output_filename)
+
+
+def check_if_file_valid(file):
+    try:
+        f = open(file, "r")
+        f.close()
+        if file[-4:] != ".mp3":
+            print("Please choose a file with mp3 format.")
+            return False
+        return True
+    except FileNotFoundError:
+        print("There is no file named", file)
+        return False
 
 
 def upload_file_to_s3(file, bucket_name):
